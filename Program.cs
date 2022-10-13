@@ -1,67 +1,58 @@
-﻿namespace HelloWorld;
+﻿namespace week6hw;
 class Program
 {
     static void Main(string[] args)
     {
-// Console.WriteLine("Homework Part 1:");
-//         Console.WriteLine("Enter Letter Grade:");
-//         string Letter = Convert.ToString(Console.ReadLine());
-//         int output;
-//         switch (Letter)
-//         {
-//             case "A":
-//             output = 4;
-//             Console.WriteLine($"GPA from letter grade: {output}");
-//             break;
-//             case "B":
-//             output = 3;
-//             Console.WriteLine($"GPA from letter grade: {output}");
-//             break;
-//             case "C":
-//             output = 2;
-//             Console.WriteLine($"GPA from letter grade: {output}");
-//             break;
-//             case "D":
-//             output = 1;
-//             Console.WriteLine($"GPA from letter grade: {output}");
-//             break;
-//             case "F":
-//             output = 0;
-//             Console.WriteLine($"GPA from letter grade: {output}");
-//             break;
-//             default:
-//             Console.WriteLine("Wrong Letter Grade!");
-//             break;
-//         }
-// Console.WriteLine("\nHomework Part 2:");
-//         double n1,n2,n3;
-//         Console.WriteLine("Please input the first num:");
-//         n1 = Convert.ToDouble(Console.ReadLine());
-//         Console.WriteLine("Please input the second num:");
-//         n2 = Convert.ToDouble(Console.ReadLine());
-//         Console.WriteLine("Please input the third num:");
-//         n3 = Convert.ToDouble(Console.ReadLine());
-//         double smol;
-//         if(n1>=n2 && n3>=n2){
-//         smol = n2;}
-//         else if(n2>=n1 && n3>=n1){
-//         smol = n1;}
-//         else if(n2>=n3 && n1>=n3){
-//         smol = n3;}
-//         else {smol = 999999;} 
-//         Console.WriteLine($"The smallest number is: {smol}");
+        //created a new professor object
+        Professor p1 = new Professor();
+        p1.profname = "Alice";
+        p1.classteach = "Java";
+        p1.salary = 9000;
 
-Console.WriteLine("\nHomework part 3");
-    Console.WriteLine("Please input a year:");
-        int year = Convert.ToInt32(Console.ReadLine());
-        if (year%4 == 0){
-            Console.WriteLine($"{year} is a leap year");
-        }
-        else Console.WriteLine($"{year} is NOT a leap year");
+        Professor p2 = new Professor();
+        p2.profname = "Bob";
+        p2.classteach = "Math";
+        p2.salary = 8000;
 
+        Student s1 = new Student();
+        s1.stuname = "Lisa";
+        s1.stuclass = "Java";
+        s1.stugrade = 90;
 
+        Student s2 = new Student();
+        s2.name = "Tom";
+        s2.stuclass = "Math";
+        s2.stugrade = 80;
 
-          
+        p1.PrintProfessorInfo();
+        p2.PrintProfessorInfo();
+        s1.PrintStudentInfo();
+        s2.PrintStudentInfo();
+
+        Console.WriteLine($"The salary difference between {p1.profname} and {p2.profname} is {p1.salary - p2.salary}");
+        Console.WriteLine($"The total grade of {s1.stuname} and {s2.stuname} is {s1.stugrade + s2.stugrade} ");
+
         
+    }
+}
+class Professor
+{
+    public string profname;
+    public string classteach;
+    public double salary {get;set;}
+
+    public void PrintProfessorInfo(){
+        System.Console.WriteLine($"Professor {profname} teaches {classteach}, and the salary is: {salary} ");
+    }
+}
+class Student
+{
+    public string stuname;
+    public string stuclass;
+    public double stugrade{get;set;}
+
+    public void PrintStudentInfo(){
+        System.Console.WriteLine($"Student {stuname} enrolls {stuclass}, and the grade is: {stugrade} ");
+
     }
 }
